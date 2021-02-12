@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ScheduleXamarin"
+             xmlns:schedule="clr-namespace:Syncfusion.SfSchedule.XForms;assembly=Syncfusion.SfSchedule.XForms"
+             x:Class="ScheduleXamarin.MainPage">
+    <ContentPage.BindingContext>
+        <local:SchedulerViewModel/>
+    </ContentPage.BindingContext>
+    <schedule:SfSchedule x:Name="schedule" 
+                         ScheduleView="MonthView" 
+                         DataSource="{ Binding Meetings}"
+                         MoveToDate="2017.06.11"
+                         ShowAppointmentsInline="True">
+        <schedule:SfSchedule.AppointmentMapping>
+            <schedule:ScheduleAppointmentMapping
+			SubjectMapping="EventName"
+			ColorMapping="Color"
+			StartTimeMapping="From"
+			EndTimeMapping="To"
+			IsRecursiveMapping = "IsRecursive"
+			RecurrenceRuleMapping="RecurrenceRule">
+            </schedule:ScheduleAppointmentMapping>
+        </schedule:SfSchedule.AppointmentMapping>
+    </schedule:SfSchedule>                       
+</ContentPage>
